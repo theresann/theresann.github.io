@@ -1,0 +1,51 @@
+gun_law_strength,state,grade,gun_death_rate
+1                 ,California      ,A-   ,42
+2                 ,Connecticut     ,A-   ,47
+3                 ,New Jersey    ,A-   ,45
+4                 ,Maryland        ,A-   ,36
+5                 ,Massachusetts   ,A-   ,49
+6                 ,New York      ,A-   ,48
+7                 ,Hawaii          ,B+   ,50
+8                 ,Illinois        ,B+   ,40
+9                 ,Rhode Island  ,B+   ,46
+10                ,Delaware        ,B      ,32
+11                ,Washington      ,B-   ,39
+12                ,Minnesota       ,C      ,43
+13                ,Pennsylvania    ,C      ,27
+14                ,Oregon          ,C      ,28
+15                ,Michigan        ,C      ,22
+16                ,Colorado        ,C-   ,25
+17                ,Iowa            ,C-   ,41
+18                ,Wisconsin       ,D      ,35
+19                ,Ohio            ,D      ,29
+20                ,Virginia        ,D      ,33
+21                ,Nebraska        ,D      ,38
+22                ,New Hampshire ,D      ,44
+23                ,Indiana         ,D-   ,18
+24                ,West Virginia ,D-   ,13
+25                ,Oklahoma        ,F      ,8
+25                ,North Carolina,F      ,21
+27                ,Nevada          ,F      ,16
+28                ,South Carolina,F      ,11
+28                ,Georgia         ,F      ,20
+28                ,Florida         ,F      ,23
+28                ,North Dakota  ,F      ,24
+32                ,Tennessee       ,F      ,10
+33                ,New Mexico    ,F      ,9
+33                ,Texas           ,F      ,31
+35                ,Maine           ,F      ,30
+36                ,Alabama         ,F      ,4
+37                ,Montana         ,F      ,5
+37                ,Arkansas        ,F      ,6
+37                ,Utah            ,F      ,19
+40                ,South Dakota  ,F      ,34
+41                ,Missouri        ,F      ,12
+41                ,Vermont         ,F      ,37
+43                ,Kentucky        ,F      ,17
+44                ,Louisiana       ,F      ,2
+44                ,Idaho           ,F      ,14
+46                ,Alaska          ,F      ,1
+47                ,Arizona         ,F      ,15
+48                ,Wyoming         ,F      ,7
+49                ,Mississippi     ,F      ,3
+50                ,Kansas          ,F      ,26

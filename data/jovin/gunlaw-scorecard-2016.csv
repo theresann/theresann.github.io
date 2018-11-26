@@ -1,0 +1,51 @@
+gun_law_strength,state,grade,gun_death_rate,BACKGROUND CHECKS
+1                 ,California      ,A      ,43              ,•
+2                 ,Connecticut     ,A-   ,46              ,•
+3                 ,New Jersey    ,A-   ,45              ,•
+4                 ,Massachusetts   ,A-   ,50              ,•
+5                 ,Maryland        ,A-   ,27              ,•
+5                 ,New York      ,A-   ,48              ,•
+7                 ,Hawaii          ,A-   ,49              ,•
+8                 ,Illinois        ,B+   ,39              ,•
+9                 ,Rhode Island  ,B+   ,47              ,•
+10                ,Washington      ,B      ,37              ,•
+11                ,Delaware        ,B      ,24              ,•
+12                ,Minnesota       ,C+   ,44              ,
+13                ,Pennsylvania    ,C      ,32              ,•
+14                ,Colorado        ,C      ,22              ,•
+15                ,Oregon          ,C      ,30              ,•
+16                ,Iowa            ,C      ,42              ,•
+16                ,Michigan        ,C      ,29              ,•
+18                ,Nevada          ,C-   ,14              ,•
+19                ,Wisconsin       ,C-   ,35              ,
+20                ,Nebraska        ,D      ,41              ,•
+21                ,Ohio            ,D      ,26              ,
+21                ,Virginia        ,D      ,34              ,
+23                ,New Hampshire ,D      ,40              ,
+23                ,North Carolina,D-   ,23              ,•
+24                ,Indiana         ,D-   ,21              ,
+26                ,Florida         ,F      ,25              ,
+27                ,Oklahoma        ,F      ,8               ,
+27                ,Tennessee       ,F      ,12              ,
+29                ,Georgia         ,F      ,16              ,
+29                ,New Mexico    ,F      ,7               ,
+29                ,North Dakota  ,F      ,20              ,
+29                ,South Carolina,F      ,10              ,
+29                ,Utah            ,F      ,19              ,
+34                ,Texas           ,F      ,28              ,
+34                ,West Virginia ,F      ,17              ,
+36                ,Maine           ,F      ,36              ,
+37                ,Alabama         ,F      ,3               ,
+38                ,Arkansas        ,F      ,11              ,
+38                ,Montana         ,F      ,6               ,
+40                ,South Dakota  ,F      ,33              ,
+41                ,Vermont         ,F      ,38              ,
+42                ,Kentucky        ,F      ,13              ,
+43                ,Louisiana       ,F      ,2               ,
+44                ,Alaska          ,F      ,1               ,
+45                ,Wyoming         ,F      ,4               ,
+46                ,Idaho           ,F      ,15              ,
+47                ,Arizona         ,F      ,18              ,
+48                ,Kansas          ,F      ,31              ,
+48                ,Missouri        ,F      ,9               ,
+50                ,Mississippi     ,F      ,5               ,
