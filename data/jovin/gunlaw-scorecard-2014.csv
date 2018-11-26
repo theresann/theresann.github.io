@@ -1,0 +1,51 @@
+gun_law_strength,state,grade,gun_death_rate
+1                 ,California      ,A-   ,42
+2                 ,Connecticut     ,A-   ,45
+3                 ,New Jersey    ,A-   ,46
+4                 ,Maryland        ,A-   ,33
+5                 ,New York      ,A-   ,47
+6                 ,Massachusetts   ,A-   ,50
+7                 ,Hawaii          ,B+   ,49
+8                 ,Illinois        ,B+   ,38
+9                 ,Rhode Island  ,B+   ,48
+10                ,Delaware        ,B-   ,30
+11                ,Washington      ,B-   ,35
+12                ,Minnesota       ,C      ,44
+13                ,Pennsylvania    ,C      ,26
+14                ,Michigan        ,C      ,22
+15                ,Iowa            ,C-   ,43
+16                ,Colorado        ,C-   ,20
+17                ,Wisconsin       ,C-   ,40
+18                ,Oregon          ,D+   ,28
+19                ,Ohio            ,D      ,27
+20                ,Virginia        ,D      ,32
+21                ,Nebraska        ,D      ,36
+22                ,New Hampshire ,D-   ,41
+23                ,Indiana         ,D-   ,23
+24                ,Maine           ,F      ,37
+24                ,Oklahoma        ,F      ,8
+24                ,West Virginia ,F      ,12
+27                ,Georgia         ,F      ,19
+27                ,North Dakota  ,F      ,31
+29                ,Nevada          ,F      ,18
+29                ,North Carolina,F      ,25
+29                ,Texas           ,F      ,29
+32                ,Arkansas        ,F      ,7
+32                ,Florida         ,F      ,24
+34                ,New Mexico    ,F      ,9
+34                ,South Carolina,F      ,10
+34                ,Tennessee       ,F      ,11
+37                ,Alabama         ,F      ,5
+38                ,Utah            ,F      ,21
+39                ,Idaho           ,F      ,16
+39                ,Montana         ,F      ,6
+41                ,Kansas          ,F      ,17
+41                ,Vermont         ,F      ,39
+43                ,South Dakota  ,F      ,34
+44                ,Alaska          ,F      ,4
+44                ,Missouri        ,F      ,14
+44                ,Wyoming         ,F      ,1
+47                ,Kentucky        ,F      ,13
+48                ,Arizona         ,F      ,15
+48                ,Mississippi     ,F      ,3
+50                ,Louisiana       ,F      ,2

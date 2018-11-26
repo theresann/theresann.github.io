@@ -1,0 +1,51 @@
+gun_law_strength,state,grade,gun_death_rate,GUN DEATH RATE (PER 100K)
+1                 ,California      ,A      ,43              ,7.9
+2                 ,New Jersey    ,A-   ,45              ,5.5
+3                 ,Connecticut     ,A-   ,46              ,4.6
+4                 ,Massachusetts   ,A-   ,50              ,3.4
+5                 ,New York      ,A-   ,48              ,4.4
+6                 ,Maryland        ,A-   ,32              ,11.8
+7                 ,Hawaii          ,A-   ,47              ,4.5
+8                 ,Illinois        ,B+   ,34              ,11.6
+9                 ,Rhode Island  ,B+   ,49              ,4.0
+10                ,Washington      ,B      ,41              ,9.0
+11                ,Delaware        ,B      ,37              ,10.9
+12                ,Minnesota       ,C+   ,44              ,7.6
+13                ,Pennsylvania    ,C      ,31              ,11.9
+14                ,Oregon          ,C      ,33              ,11.8
+15                ,Colorado        ,C      ,20              ,14.3
+16                ,Michigan        ,C      ,27              ,12.2
+17                ,Wisconsin       ,C-   ,35              ,11.4
+18                ,Iowa            ,C-   ,39              ,9.2
+19                ,Nebraska        ,D      ,40              ,9.1
+20                ,Virginia        ,D      ,29              ,12.0
+21                ,Ohio            ,D      ,25              ,12.9
+22                ,Nevada          ,D      ,15              ,16.7
+23                ,Indiana         ,D-   ,18              ,14.9
+24                ,Tennessee       ,D-   ,14              ,17.0
+25                ,North Carolina,D-   ,21              ,13.6
+26                ,Florida         ,F      ,26              ,12.6
+27                ,Oklahoma        ,F      ,5               ,19.6
+27                ,Utah            ,F      ,24              ,12.9
+29                ,New Mexico    ,F      ,8               ,18.2
+29                ,South Carolina,F      ,10              ,17.7
+31                ,New Hampshire ,F      ,38              ,9.3
+32                ,Georgia         ,F      ,17              ,14.9
+32                ,Texas           ,F      ,28              ,12.1
+32                ,West Virginia ,F      ,12              ,17.5
+35                ,Maine           ,F      ,42              ,8.2
+36                ,Alabama         ,F      ,2               ,21.4
+37                ,Montana         ,F      ,6               ,19.0
+37                ,North Dakota  ,F      ,30              ,11.9
+39                ,Arkansas        ,F      ,9               ,17.7
+40                ,South Dakota  ,F      ,22              ,13.5
+41                ,Vermont         ,F      ,36              ,11.0
+42                ,Kentucky        ,F      ,13              ,17.5
+43                ,Louisiana       ,F      ,3               ,21.2
+44                ,Alaska          ,F      ,1               ,23.0
+45                ,Wyoming         ,F      ,11              ,17.5
+46                ,Idaho           ,F      ,19              ,14.6
+47                ,Arizona         ,F      ,16              ,15.2
+48                ,Kansas          ,F      ,23              ,13.3
+48                ,Missouri        ,F      ,7               ,18.8
+50                ,Mississippi     ,F      ,4               ,19.8
