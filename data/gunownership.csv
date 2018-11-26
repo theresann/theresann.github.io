@@ -1,0 +1,51 @@
+state,gun_ownership,abbrev,region
+Rhode Island,5.8,RI,Northeast
+New York,10.3,NY,Northeast
+New Jersey,11.3,NJ,Northeast
+New Hampshire,14.4,NH,Northeast
+Connecticut,16.6,CT,Northeast
+Massachusetts,22.6,MA,Northeast
+Maine,22.6,ME,Northeast
+Pennsylvania,27.1,PA,Northeast
+Vermont,28.8,VT,Northeast
+Ohio,19.6,OH,Midwest
+Nebraska,19.8,NE,Midwest
+Illinois,26.2,IL,Midwest
+Missouri,27.1,MO,Midwest
+Michigan,28.8,MI,Midwest
+Kansas,32.2,KS,Midwest
+Indiana,33.8,IN,Midwest
+Iowa,33.8,IA,Midwest
+Wisconsin,34.7,WI,Midwest
+South Dakota,35,SD,Midwest
+Minnesota,36.7,MN,Midwest
+North Dakota,47.9,ND,Midwest
+Delware,5.2,DE,South
+Maryland,20.7,MD,South
+North Carolina,28.7,NC,South
+Virginia,29.3,VA,South
+Oklahoma,31.2,OK,South
+Georgia,31.6,GA,South
+Florida,32.5,FL,South
+Texas,35.7,TX,South
+Tennessee,39.4,TN,South
+Kentucky,42.4,KY,South
+Mississippi,42.8,MS,South
+South Carolina,44.4,SC,South
+Louisiana,44.5,LA,South
+Alabama,48.9,AL,South
+West Virginia,54.2,WV,South
+Arkansas,57.9,AR,South
+California,20.1,CA,West
+Oregon,26.6,OR,West
+Washington,27.7,WA,West
+Utah,31.9,UT,West
+Arizona,32.3,AZ,West
+Colorado,34.3,CO,West
+Nevada,37.5,NV,West
+Hawaii,45.1,HI,West
+New Mexico,49.9,NM,West
+Montana,52.3,MT,West
+Wyoming,53.8,WY,West
+Idaho,56.9,ID,West
+Alaska,61.7,AK,West
