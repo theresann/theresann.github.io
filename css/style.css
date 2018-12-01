@@ -1,11 +1,13 @@
 /* custom css rules */
 
 body {
-	font-family: 'Raleway', sans-serif;
+	/*font-family: 'Raleway', sans-serif;*/
+	font-family: Lucida Grande, Lucida Sans, Verdana, Tahoma, Helvetica Neue, Arial, sans-serif;
 	/*background-color: #1b1e21;*/
 	background-color: black;
 	color: white;
 	text-align: center;
+	padding: 0px;
 }
 
 svg {
@@ -20,6 +22,8 @@ h1 {
 	padding: 1em;
 	margin-bottom: 1em;
 }
+
+
 
 
 
@@ -40,7 +44,6 @@ h1 {
 .y-axis text {
 	font-weight: lighter;
 }
-
 
 .title {
 	background: linear-gradient(
@@ -144,9 +147,6 @@ h6 {
 * {
 	box-sizing: border-box; }
 
-body {
-	padding: 15px;
-	font-family: Lucida Grande, Lucida Sans, Verdana, Tahoma, Helvetica Neue, Arial, sans-serif; }
 
 .container {
 	margin: 0 auto;

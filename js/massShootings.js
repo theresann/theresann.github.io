@@ -8,10 +8,10 @@ MassShootingsVis = function(_parentElement, _data){
 MassShootingsVis.prototype.initVis = function() {
     var vis = this;
 
-    vis.margin = {top: 40, right: 0, bottom: 60, left: 50};
+    vis.margin = {top: 40, right: 0, bottom: 50, left: 50};
 
     vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
-        vis.height = 600 - vis.margin.top - vis.margin.bottom;
+        vis.height = 630 - vis.margin.top - vis.margin.bottom;
 
     // SVG drawing area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -25,7 +25,7 @@ MassShootingsVis.prototype.initVis = function() {
         .attr('class', 'd3-tip')
         .offset([-10,0])
         .html(function(d) {
-            return d.case + "<br>" + d.date + "<br>" + d.fatalities + " dead, " + d.injured + " injured";
+            return d.case + "<br>" + d.date + "<br>" + d.fatalities + " dead, " + d.injured + " injured ";
         });
 
     vis.wrangleData();
@@ -67,11 +67,15 @@ MassShootingsVis.prototype.wrangleData = function() {
         }
     });
 
+
+
     vis.displayData = shooting_victims;
 
-    console.log(case_id_max);
 
-    console.log(vis.displayData);
+
+    console.log(vis.displayData.length);
+
+    // console.log(vis.displayData);
 
     vis.updateVis();
 };
@@ -79,14 +83,16 @@ MassShootingsVis.prototype.wrangleData = function() {
 MassShootingsVis.prototype.updateVis = function() {
     var vis = this;
 
-    var num_per_row = Math.ceil(vis.width / 22);
+    var spacing = 18;
+
+    var num_per_row = Math.ceil(vis.width / (spacing + 2));
     var num_of_rows = Math.ceil(vis.displayData.length / num_per_row);
 
     console.log(num_per_row);
 
     // var half_length = Math.ceil(vis.displayData.length / 2);
 
-    var half_length = num_per_row * Math.floor(num_of_rows / 2);
+    var half_length = num_per_row * (Math.floor(num_of_rows / 2) + 2);
 
 
     // vis.svg.selectAll("image")
@@ -111,23 +117,30 @@ MassShootingsVis.prototype.updateVis = function() {
 
 
 
-    vis.svg.selectAll("circle")
+    var width_rect2 = 13;
+    var height_rect2 = 20;
+    var start_id_rect3 = half_length + width_rect2 * height_rect2;
+    var bottom_trigger = 3* 12;
+
+
+    vis.svg.selectAll("rect")
         .data(vis.displayData)
         .enter()
-        .append("circle")
+        .append("rect")
         .on('mouseover', vis.tip.show)
         .on('mouseout', vis.tip.hide)
         .on('click', function(d) {
             d3.selectAll(".words").remove();
 
-            vis.svg.append("text")
-                .style("text-anchor", "middle")
-                .style("font-size", 30)
-                .attr("class", "words")
-                .attr("x", (vis.width - vis.margin.left)/2)
-                .attr("y", vis.height/2)
-                .style("fill", "white")
-                .text(d.case);
+            // vis.svg.append("text")
+            //     .style("text-anchor", "middle")
+            //     .style("font-size", 30)
+            //     .attr("class", "words")
+            //     .attr("x", (vis.width - vis.margin.left)/2)
+            //     .attr("y", vis.height/2)
+            //     // .attr("y", 15)
+            //     .style("fill", "white")
+            //     .text(d.case);
 
             var textG = vis.svg.append('g');
 
@@ -137,74 +150,179 @@ MassShootingsVis.prototype.updateVis = function() {
 
             var b = fullTxt.split('.');
 
+            console.log(d.id);
 
-            vis.svg.append("foreignObject")
-                .style("text-anchor", "middle")
-                .style("font-size", 14)
 
-                .attr("class", "words")
-                .attr("x", 15)
-                .attr("y", vis.height/2 + 25)
-                .attr("width", vis.width * 0.88)
-                .style("fill", "white")
-                .text(d.descr);
+            // vis.svg.append("foreignObject")
+            //     .style("text-anchor", "middle")
+            //     .style("font-size", 14)
+            //
+            //     .attr("class", "words")
+            //     .attr("x", 15)
+            //     .attr("y", vis.height/2 + 25)
+            //     // .attr("y", 40)
+            //     .attr("width", vis.width * 0.88)
+            //     .style("fill", "white")
+            //     .text(d.descr);
 
         })
         .attr("stroke", "black")
         .style("fill", "white")
         .attr("class", function(d) { return "shooting-case-"+d.case_id; })
-        .attr("r", 7)
-        .attr("cx", function(d) {return (d.id % num_per_row) * 20 + 20})
-        .attr("cy", function(d) {
+        .attr("width", 11)
+        .attr("height", 11)
+        .attr("x", function(d) {
+            // return (d.id % num_per_row) * 20 + 20;
+
+
+            if (d.id < half_length) {
+                return (d.id % num_per_row) * spacing + 20;
+            }
+            else if (d.id < half_length + width_rect2 * height_rect2) {
+                return (d.id % width_rect2) * spacing + 20;
+            }
+            else if (d.id < start_id_rect3 + bottom_trigger){
+
+                return width_rect2 * spacing + 20 + ((d.id - start_id_rect3) % 12)* spacing;
+            }
+            else if (d.id < start_id_rect3 + bottom_trigger + 3*8) {
+                var start_rect4 = start_id_rect3 + bottom_trigger;
+                return ((d.id - start_rect4) % 3) * spacing + width_rect2 * spacing + 20 + 12 * spacing;
+            }
+            else {
+                return (d.id % width_rect2) * spacing + 400;
+            }
+            })
+        .attr("y", function(d) {
             if (d.id < half_length) {
                 return Math.floor(d.id/num_per_row) * 20;
             }
+            else if (d.id < half_length + width_rect2 * height_rect2) {
+                // return Math.floor(d.id/num_per_row) * 20 + 100;
+                var offset_id = d.id - half_length;
+                return  (half_length / num_per_row * spacing) + 15
+                    + Math.floor(offset_id/ width_rect2) * spacing ;
+            }
+            else if (d.id < start_id_rect3 + 3*12) {
+                if (d.id < start_id_rect3 + 12) {
+                    return 5 * spacing + (half_length / num_per_row * spacing) + 15;
+                }
+                else if (d.id < start_id_rect3 + 2*12) {
+                    return 6 * spacing + (half_length / num_per_row * spacing) + 15;
+                }
+                else {
+                    return 7 * spacing + (half_length / num_per_row * spacing) + 15;
+                }
+            }
+            else if (d.id < start_id_rect3 + 3*12 + 3*8) {
+                var start_rect4 = start_id_rect3 + bottom_trigger;
+                return Math.floor((d.id - start_rect4) / 3) * spacing + (half_length / num_per_row + 1) * spacing;
+            }
             else {
-                return Math.floor(d.id/num_per_row) * 20 + 230;
+                return vis.height * 0.75;
             }
 
+
         });
+
+    // define grave icon
+
+
+
+    function instance_description(d) {
+        d3.selectAll(".words").remove();
+
+        vis.svg.append("text")
+            .style("text-anchor", "middle")
+            .style("font-size", 30)
+            .attr("class", "words")
+            .attr("x", (vis.width - vis.margin.left)/2)
+            // .attr("y", vis.height/2)
+            .attr("y", 50)
+            .style("fill", "white")
+            .text(d.case);
+
+        var textG = vis.svg.append('g');
+        var i = 0;
+        var fullTxt = d.descr;
+        var b = fullTxt.split('.');
+        vis.svg.append("foreignObject")
+            .style("text-anchor", "middle")
+            .style("font-size", 14)
+
+            .attr("class", "words")
+            .attr("x", 15)
+            // .attr("y", vis.height/2 + 25)
+            .attr("y", 75)
+            .attr("width", vis.width * 0.88)
+            .style("fill", "white")
+            .text(d.descr);
+    }
 
     vis.svg.call(vis.tip);
 
 
     var summary_info = function() {
+
+        var middle_pos = {
+            x: (vis.width - vis.margin.left) * 2/3 - 30,
+            y: vis.height * (2/3) + 70
+        }
         vis.svg.append("text")
             .style("text-anchor", "middle")
             .attr("class", "words")
-            .attr("x", (vis.width - vis.margin.left)/2)
-            .attr("y", vis.height/2 - 15)
+            .attr("x", middle_pos.x)
+            .attr("y", middle_pos.y - 60)
+            // .attr("y", 15)
             .style("fill", "white")
             .text("In mass shootings between 1982 and 2018,");
 
         vis.svg.append("text")
             .style("text-anchor", "middle")
             .style("font-weight", "bolder")
-            .style("font-size", 60)
+            .style("font-size", 58)
             .attr("class", "words")
-            .attr("x", (vis.width - vis.margin.left)/2)
-            .attr("y", vis.height/2 + 50)
+            .attr("x", middle_pos.x)
+            .attr("y", middle_pos.y)
+            // .attr("y", 65)
             .style("fill", "white")
-            .text("836 PEOPLE HAVE DIED");
+            .text("872 PEOPLE HAVE DIED");
 
         vis.svg.append("text")
             .style("text-anchor", "middle")
             .attr("class", "words")
-            .attr("x", (vis.width - vis.margin.left)/2)
-            .attr("y", vis.height/2 + 80)
+            .attr("x", middle_pos.x)
+            // .attr("y", vis.height/2 + 80)
+            .attr("y", middle_pos.y + 30)
             .style("fill", "white")
             .text("and thousands more have been injured.");
 
+        var instructions_pos = {
+            x: (vis.width - vis.margin.left) * 2/3,
+            y:  vis.height * 1/3 + 20
+        }
+
         vis.svg.append("text")
-            .style("text-anchor", "middle")
+            .style("text-anchor", "start")
             .style("font-size", 12)
             .style("font-style", "italic")
             .attr("class", "words")
-            .attr("x", (vis.width - vis.margin.left)/2)
-            .attr("y", vis.height/2 + 100 + 15)
+            .attr("x", instructions_pos.x)
+            .attr("y", instructions_pos.y)
+            // .attr("y", 120)
             .style("fill", "white")
-            .text("Each dot represents a person who died in a mass shooting. " +
-                "Click on a dot to read about the incident in which they died.");
+            .text("Each dot represents a person who died in a mass shooting. ");
+
+        vis.svg.append("text")
+            .style("text-anchor", "start")
+            .style("font-size", 12)
+            .style("font-style", "italic")
+            .attr("class", "words")
+            .attr("x", instructions_pos.x)
+            .attr("y", instructions_pos.y + 20)
+            // .attr("y", 120)
+            .style("fill", "white")
+            .text("Click on a dot to read about the incident in which they died.");
 
     }
 
