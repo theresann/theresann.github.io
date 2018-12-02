@@ -63,19 +63,20 @@ function gunScoreVis() {
         .attr("fill", function(d) {
             var g = d.grade;
             if (g.includes("A")) {
-                return "#fed976";
+                // return "#fed976";
+                return "#fee5d9";
             }
             else if (g.includes("B")) {
-                return "#feb24c";
+                return "#fcae91";
             }
             else if (g.includes("C")) {
-                return "#fd8d3c";
+                return "#fb6a4a";
             }
             else if (g.includes("D")) {
-                return "#fc4e2a";
+                return "#de2d26";
             }
             else {
-                return "#b10026";
+                return "#a50f15";
             }
 
         })

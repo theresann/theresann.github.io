@@ -23,7 +23,23 @@ h1 {
 	margin-bottom: 1em;
 }
 
+.menu {
+	position: fixed;
+	margin-top: 10px;
+	left: 10px;
+	width: 60%;
+	font-size: 12px;
+	z-index: 10;
+	float: left;
+	text-align: center;
+}
 
+.menu-button {
+	background-color: transparent;
+	color: white;
+	border-radius: 3px;
+	border: solid white 1px;
+}
 
 
 
@@ -92,7 +108,7 @@ h1 {
 
 #transition-to-general {
 	font-size: 40px;
-	padding: 6em 4em 6em 4em ;
+	padding: 4em 4em 6em 4em ;
 	background: linear-gradient(
 			rgba(0, 0, 0, 0.6),
 			rgba(0, 0, 0, 0.6)
@@ -117,7 +133,7 @@ h3 {
 
 
 #gun-control{
-	padding: 250px;
+	padding-top: 150px;
 	font-weight: bolder;
 	background: linear-gradient(
 			rgba(0, 0, 0, 0.6),

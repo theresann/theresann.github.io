@@ -8,10 +8,10 @@ MassShootingsVis = function(_parentElement, _data){
 MassShootingsVis.prototype.initVis = function() {
     var vis = this;
 
-    vis.margin = {top: 40, right: 0, bottom: 50, left: 50};
+    vis.margin = {top: 80, right: 0, bottom: 40, left: 50};
 
     vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
-        vis.height = 630 - vis.margin.top - vis.margin.bottom;
+        vis.height = 580 - vis.margin.top - vis.margin.bottom;
 
     // SVG drawing area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -225,8 +225,6 @@ MassShootingsVis.prototype.updateVis = function() {
 
         });
 
-    // define grave icon
-
 
 
     function instance_description(d) {
@@ -261,12 +259,13 @@ MassShootingsVis.prototype.updateVis = function() {
 
     vis.svg.call(vis.tip);
 
+    var red = "#a50f15";
 
     var summary_info = function() {
 
         var middle_pos = {
             x: (vis.width - vis.margin.left) * 2/3 - 30,
-            y: vis.height * (2/3) + 70
+            y: vis.height * (2/3) + 100
         }
         vis.svg.append("text")
             .style("text-anchor", "middle")
@@ -285,7 +284,8 @@ MassShootingsVis.prototype.updateVis = function() {
             .attr("x", middle_pos.x)
             .attr("y", middle_pos.y)
             // .attr("y", 65)
-            .style("fill", "white")
+            .style("fill", red)
+            .attr("stroke", red)
             .text("872 PEOPLE HAVE DIED");
 
         vis.svg.append("text")
@@ -297,36 +297,44 @@ MassShootingsVis.prototype.updateVis = function() {
             .style("fill", "white")
             .text("and thousands more have been injured.");
 
-        var instructions_pos = {
-            x: (vis.width - vis.margin.left) * 2/3,
-            y:  vis.height * 1/3 + 20
-        }
 
-        vis.svg.append("text")
-            .style("text-anchor", "start")
-            .style("font-size", 12)
-            .style("font-style", "italic")
-            .attr("class", "words")
-            .attr("x", instructions_pos.x)
-            .attr("y", instructions_pos.y)
-            // .attr("y", 120)
-            .style("fill", "white")
-            .text("Each dot represents a person who died in a mass shooting. ");
 
-        vis.svg.append("text")
-            .style("text-anchor", "start")
-            .style("font-size", 12)
-            .style("font-style", "italic")
-            .attr("class", "words")
-            .attr("x", instructions_pos.x)
-            .attr("y", instructions_pos.y + 20)
-            // .attr("y", 120)
-            .style("fill", "white")
-            .text("Click on a dot to read about the incident in which they died.");
+
 
     }
 
     summary_info();
+
+    var instructions_pos = {
+        // x: (num_per_row + 1) * spacing,
+        x: (width_rect2 + 16) * spacing,
+        y:  (half_length / num_per_row + 1.5) * spacing
+    }
+    vis.svg.append("text")
+        .style("text-anchor", "start")
+        .style("font-size", 12)
+        .style("font-style", "italic")
+        // .attr("class", "words")
+        .attr("x", instructions_pos.x)
+        .attr("y", instructions_pos.y)
+        // .attr("y", 120)
+        // .style("fill", red)
+        // .attr("stroke", red)
+        .style("fill", "white")
+        .text("Each dot represents a person who died in a mass shooting. ");
+
+    vis.svg.append("text")
+        .style("text-anchor", "start")
+        .style("font-size", 12)
+        .style("font-style", "italic")
+        // .attr("class", "words")
+        .attr("x", instructions_pos.x)
+        .attr("y", instructions_pos.y + 20)
+        // .attr("y", 120)
+        // .style("fill", red)
+        // .attr("stroke", red)
+        .style("fill", "white")
+        .text("Click on a dot to read about the incident in which they died.");
 
 
     // adapted from https://stackoverflow.com/questions/12786810/hover-on-element-and-highlight-all-elements-with-the-same-class/38501503
@@ -340,7 +348,7 @@ MassShootingsVis.prototype.updateVis = function() {
         }
         for(var i = 0; i < n; i ++) {
             elms[i].onmouseover = function() {
-                changeColor("orange", "3px");
+                changeColor(red, "3px");
             };
             elms[i].onmouseout = function() {
                 changeColor("white", "0px");
