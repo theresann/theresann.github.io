@@ -136,7 +136,7 @@ $(document).ready(function() {
   // gun icons
   (async () => {
     await new Promise(async resolve => {
-      for (const el of $('.gunQuestions-container .portions .gun-icon').slice(0, 8)) {
+      for (const el of $('.gunQuestions-container .portions .gun-icon').slice(0, 4)) {
         $(el).addClass('covered')
         await new Promise(resolve => {
           setTimeout(resolve, 500)
@@ -146,7 +146,7 @@ $(document).ready(function() {
       resolve()
     })
     await new Promise(async resolve => {
-      for (const el of $('.gunQuestions-container .prevalent-guns .gun-icon').slice(0, 8).get().reverse()) {
+      for (const el of $('.gunQuestions-container .prevalent-guns .gun-icon').slice(0, 5).get().reverse()) {
         $(el).addClass('covered')
         await new Promise(resolve => {
           setTimeout(resolve, 500)

@@ -171,6 +171,7 @@ GunLawMap.prototype.initVis = function() {
     .attr('class', 'legend')
     .attr('width', vis.legendVis.width + vis.legendVis.margin.left + vis.legendVis.margin.right)
     .attr('height', vis.legendVis.height + vis.legendVis.margin.top + vis.legendVis.margin.bottom)
+    .attr('transform', `translate(20, -150)`)
     .append('g')
 
   vis.wrangleData()

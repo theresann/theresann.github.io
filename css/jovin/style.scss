@@ -123,8 +123,12 @@ body {
     justify-content: center;
     .leftColumn {
       margin-right: 30px;
+      position: relative;
 
       #gunLawMap {
+        .legend {
+          margin-top: -100px;
+        }
         .states {
           &:hover {
             fill-opacity: 0.7;
@@ -172,8 +176,16 @@ body {
       }
 
       .sliderContainer {
-        width: 100%;
+        width: 200px;
         text-align: center;
+        position: absolute;
+        right: 0;
+        top: 200px;
+
+        p {
+          font-size: 9px;
+          margin-bottom: 5px;
+        }
 
         .slider {
           -webkit-appearance: none;
@@ -213,19 +225,20 @@ body {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      padding: 15px;
+      padding: 0 15px;
       border-left: 1px dashed grey;
 
       .description {
         .heading {
           h2 {
-            display: none;
-            font-size: 16px;
+            //display: none;
+            font-size: 12px;
             font-weight: normal;
           }
         }
 
         p {
+          font-size: 12px;
           margin-bottom: 3px;
         }
 
