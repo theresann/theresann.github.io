@@ -5,6 +5,7 @@ queue()
     .await(createVis);
 
 var weapon_deaths;
+var senators = {};
 
 
 function createVis(error, mass_shootings_data) {
@@ -35,22 +36,6 @@ function createVis(error, mass_shootings_data) {
         });
     }
 
-
-    // $(window).scroll(function() {
-    //     var hT = $('#mass-shootings2').offset().top,
-    //         hH = $('#mass-shootings2').outerHeight(),
-    //         wH = $(window).height(),
-    //         wS = $(this).scrollTop();
-    //     if (wS === (hT+hH-wH)){
-    //         setTimeout(animate_numbers, 5000)
-    //     }
-    // });
-
-    // $('.col-4').click( function (e) {
-    //     if ( e.target === this ) {
-    //         animate_numbers();
-    //     }
-    // });
 
 }
 

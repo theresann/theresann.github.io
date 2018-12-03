@@ -80,7 +80,6 @@ function gunOwnersVis() {
     });
 
     laws.forEach(function(d) {
-        console.log(d.state);
         combined[d.state].background_checks = d.background_checks;
     });
 
@@ -112,7 +111,7 @@ function gunOwnersVis() {
         .append("circle")
         .on('mouseover', tip.show)
         .on('mouseout', tip.hide)
-        .style("stroke", function(d) {
+        .attr("fill", function(d) {
             if (d.background_checks === "no") {
                 return "red";
             }
@@ -120,23 +119,11 @@ function gunOwnersVis() {
                 return "white";
             }
         })
-        .attr("fill", "transparent")
-        // .style("stroke", function(d) {
-        //     if (d.region === "Northeast") {
-        //         return "blue";
-        //     }
-        //     else if (d.region === "West") {
-        //         return "green";
-        //     }
-        //     else if (d.region === "Midwest") {
-        //         return "yellow";
-        //     }
-        //     else {
-        //         return "red";
-        //     }
-        // })
-        .style("stroke-width", "1.5px")
-        .attr("r", 5)
+        .attr("opacity", 0.5)
+        // .attr("fill", "transparent")
+        // .style("stroke-width", "1.5px")
+        .style("stroke", "none")
+        .attr("r", 6)
         .attr("cx", function(d){
             return x(d.owners); })
         .attr("cy", function(d) {
@@ -151,7 +138,7 @@ function gunOwnersVis() {
         .attr("class", "point-label")
         .style("stroke", function(d) {
             if (d.background_checks === "no") {
-                return "orange";
+                return "#a50f15";
             }
             else {
                 return "white";
@@ -169,7 +156,6 @@ function gunOwnersVis() {
             } })
         .attr("y", function(d) {
             if (overlaps.indexOf(d.abbrev) > -1) {
-                console.log(d.abbrev);
                 return y(d.death_rate) - 7;
             }
             else {
@@ -187,17 +173,46 @@ function gunOwnersVis() {
         .scale(y);
 
 
-    // // legend for region colors
-    // svg.selectAll("text")
-    //     .data(regions)
-    //     .enter()
-    //     .append("text")
-    //     .style("text-anchor", "start")
-    //     .style("font-size", 10)
-    //     .attr("x", width - 65)
-    //     .attr("y", function(d,i) {return i*15 + height - 70})
-    //     .attr("stroke", "white")
-    //     .text(function(d){return d;})
+    // legend
+
+    svg.append("circle")
+        .style("stroke", "none")
+        .attr("fill", "red")
+        .attr("opacity", 0.5)
+        .attr("cx", width - 125)
+        .attr("cy", height - 80)
+        .attr("r", 6);
+
+    svg.append("text")
+        .attr("fill", "#a50f15")
+        .attr("x", 15 + width - 125)
+        .attr("y", height - 80 + 3)
+        .style("font-size", 10)
+        .text("no background checks");
+
+    svg.append("circle")
+        .style("stroke", "none")
+        .attr("opacity", 0.5)
+        .attr("fill", "white")
+        .attr("cx", width - 125)
+        .attr("cy", height - 80 + 20)
+        .attr("r", 5);
+
+    svg.append("text")
+        .attr("fill", "white")
+        .style("font-size", 10)
+        .attr("x", 15 + width - 125)
+        .attr("y", height - 80 + 20 + 3)
+        .text("background checks");
+
+    svg.append("rect")
+        .attr("x", width - 140)
+        .attr("y", height - 95)
+        .attr("fill", "none")
+        .attr("stroke-width", "0.75px")
+        .attr("height", 50)
+        .attr("width", 150);
+
 
     //x axis
     svg.append("g")
@@ -222,72 +237,7 @@ function gunOwnersVis() {
         .style("text-anchor", "end")
         .text("(per 100,000 people)");
 
-    // legend
-
-    // if (d.region === "Northeast") {
-    //     return "blue";
-    // }
-    // else if (d.region === "West") {
-    //     return "green";
-    // }
-    // else if (d.region === "Midwest") {
-    //     return "yellow";
-    // }
-    // else {
-    //     return "red";
-    // }
-
-    // svg.selectAll("rect")
-    //     .data(colors)
-    //     .enter()
-    //     .append("rect")
-    //     .attr("x", width - 80)
-    //     .attr("y", function(d,i) {return i*15 + height - 80})
-    //     .attr("width", 10)
-    //     .attr("height", 10)
-    //     .attr("stroke", "black")
-    //     .attr("fill", function(d) {return d;})
-
-    // new legend
-
-    svg.append("circle")
-        .style("stroke", "red")
-        .attr("fill", "none")
-        .style("stroke-width", "1.5px")
-        .attr("cx", width - 125)
-        .attr("cy", height - 80)
-        .attr("r", 5);
-
-    svg.append("text")
-        .attr("fill", "orange")
-        .attr("x", 15 + width - 125)
-        .attr("y", height - 80 + 3)
-        .style("font-size", 10)
-        .text("no background checks");
-
-    svg.append("circle")
-        .style("stroke", "white")
-        .style("stroke-width", "1.5px")
-        .attr("fill", "none")
-        .attr("cx", width - 125)
-        .attr("cy", height - 80 + 20)
-        .attr("r", 5);
-
-    svg.append("text")
-        .attr("fill", "white")
-        .style("font-size", 10)
-        .attr("x", 15 + width - 125)
-        .attr("y", height - 80 + 20 + 3)
-        .text("background checks");
-
-    svg.append("rect")
-        .attr("x", width - 140)
-        .attr("y", height - 95)
-        .attr("fill", "none")
-        .attr("height", 50)
-        .attr("width", 150);
-
-    // y axis label
+    // axis labels
     svg.append("text")
         .attr("text-anchor", "middle")
         .style("font-size", 14)

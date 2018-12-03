@@ -94,33 +94,22 @@ MassShootingsVis.prototype.updateVis = function() {
 
     var half_length = num_per_row * (Math.floor(num_of_rows / 2) + 2);
 
-
-    // vis.svg.selectAll("image")
-    //     .data(vis.displayData)
-    //     .enter()
-    //     .append("image")
-    //     .attr("xlink:href", "img/man-user.svg")
-    //     .style("fill", "white")
-    //     .attr("width", 15)
-    //     .attr("height", 15)
-    //     .attr("x", function(d) {return (d.id % num_per_row) * 20})
-    //     .attr("y", function(d) {
-    //         if (d.id < half_length) {
-    //             return Math.floor(d.id/num_per_row) * 20;
-    //         }
-    //         else {
-    //             return Math.floor(d.id/num_per_row) * 20 + 200;
-    //         }
-    //
-    //     });
-
-
-
+    vis.red = "#a50f15";
 
     var width_rect2 = 13;
     var height_rect2 = 20;
     var start_id_rect3 = half_length + width_rect2 * height_rect2;
     var bottom_trigger = 3* 12;
+
+    var middle_pos = {
+        x: (vis.width - vis.margin.left) * 2/3 - 30,
+        y: vis.height * (2/3) + 100
+    }
+
+    var descr_pos = {
+        x: (width_rect2 + 3) * spacing + 10,
+        y: (half_length / num_per_row + 1) * spacing + 9 * spacing
+    }
 
 
     vis.svg.selectAll("rect")
@@ -132,15 +121,16 @@ MassShootingsVis.prototype.updateVis = function() {
         .on('click', function(d) {
             d3.selectAll(".words").remove();
 
-            // vis.svg.append("text")
-            //     .style("text-anchor", "middle")
-            //     .style("font-size", 30)
-            //     .attr("class", "words")
-            //     .attr("x", (vis.width - vis.margin.left)/2)
-            //     .attr("y", vis.height/2)
-            //     // .attr("y", 15)
-            //     .style("fill", "white")
-            //     .text(d.case);
+            vis.svg.append("text")
+                .style("text-anchor", "middle")
+                .style("font-size", 30)
+                .attr("class", "words")
+                .attr("x", middle_pos.x - 20)
+                .attr("y", descr_pos.y)
+                // .attr("y", 15)
+                .style("fill", vis.red)
+                .attr("stroke", vis.red)
+                .text(d.case);
 
             var textG = vis.svg.append('g');
 
@@ -153,17 +143,17 @@ MassShootingsVis.prototype.updateVis = function() {
             console.log(d.id);
 
 
-            // vis.svg.append("foreignObject")
-            //     .style("text-anchor", "middle")
-            //     .style("font-size", 14)
-            //
-            //     .attr("class", "words")
-            //     .attr("x", 15)
-            //     .attr("y", vis.height/2 + 25)
-            //     // .attr("y", 40)
-            //     .attr("width", vis.width * 0.88)
-            //     .style("fill", "white")
-            //     .text(d.descr);
+            vis.svg.append("foreignObject")
+                .style("text-anchor", "middle")
+                .style("font-size", 14)
+
+                .attr("class", "words")
+                .attr("x", descr_pos.x)
+                .attr("y", descr_pos.y + 20)
+                // .attr("y", 40)
+                .attr("width", vis.width * 0.7)
+                .style("fill", "white")
+                .text(d.descr);
 
         })
         .attr("stroke", "black")
@@ -259,14 +249,11 @@ MassShootingsVis.prototype.updateVis = function() {
 
     vis.svg.call(vis.tip);
 
-    var red = "#a50f15";
+
 
     var summary_info = function() {
 
-        var middle_pos = {
-            x: (vis.width - vis.margin.left) * 2/3 - 30,
-            y: vis.height * (2/3) + 100
-        }
+
         vis.svg.append("text")
             .style("text-anchor", "middle")
             .attr("class", "words")
@@ -284,8 +271,8 @@ MassShootingsVis.prototype.updateVis = function() {
             .attr("x", middle_pos.x)
             .attr("y", middle_pos.y)
             // .attr("y", 65)
-            .style("fill", red)
-            .attr("stroke", red)
+            .style("fill", vis.red)
+            .attr("stroke", vis.red)
             .text("872 PEOPLE HAVE DIED");
 
         vis.svg.append("text")
@@ -296,9 +283,6 @@ MassShootingsVis.prototype.updateVis = function() {
             .attr("y", middle_pos.y + 30)
             .style("fill", "white")
             .text("and thousands more have been injured.");
-
-
-
 
 
     }
@@ -314,27 +298,19 @@ MassShootingsVis.prototype.updateVis = function() {
         .style("text-anchor", "start")
         .style("font-size", 12)
         .style("font-style", "italic")
-        // .attr("class", "words")
         .attr("x", instructions_pos.x)
         .attr("y", instructions_pos.y)
-        // .attr("y", 120)
-        // .style("fill", red)
-        // .attr("stroke", red)
         .style("fill", "white")
-        .text("Each dot represents a person who died in a mass shooting. ");
+        .text("Each square represents a person who died in a mass shooting. ");
 
     vis.svg.append("text")
         .style("text-anchor", "start")
         .style("font-size", 12)
         .style("font-style", "italic")
-        // .attr("class", "words")
         .attr("x", instructions_pos.x)
         .attr("y", instructions_pos.y + 20)
-        // .attr("y", 120)
-        // .style("fill", red)
-        // .attr("stroke", red)
         .style("fill", "white")
-        .text("Click on a dot to read about the incident in which they died.");
+        .text("Click on a square to read about the incident in which they died.");
 
 
     // adapted from https://stackoverflow.com/questions/12786810/hover-on-element-and-highlight-all-elements-with-the-same-class/38501503
@@ -348,7 +324,7 @@ MassShootingsVis.prototype.updateVis = function() {
         }
         for(var i = 0; i < n; i ++) {
             elms[i].onmouseover = function() {
-                changeColor(red, "3px");
+                changeColor(vis.red, "3px");
             };
             elms[i].onmouseout = function() {
                 changeColor("white", "0px");
@@ -530,7 +506,6 @@ MassShootingsVis.prototype.thirdVis = function() {
             locations["School"]++;
         }
         else {
-            console.log(place);
             locations["Other"]++;
         }
     })
@@ -577,7 +552,8 @@ MassShootingsVis.prototype.thirdVis = function() {
             // .attr("class", "words")
             .attr("x", 0 + 100)
             .attr("y", y)
-            .style("stroke", "orange")
+            .style("stroke", vis.red)
+            .attr("fill", vis.red)
             .text(content);
     }
 

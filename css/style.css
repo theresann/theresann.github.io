@@ -23,15 +23,25 @@ h1 {
 	margin-bottom: 1em;
 }
 
+li {
+	text-align: left;
+}
+
+input {
+	margin: 5px;
+	font-size: 12px;
+}
+
 .menu {
 	position: fixed;
-	margin-top: 10px;
-	left: 10px;
-	width: 60%;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	width: 100%;
 	font-size: 12px;
 	z-index: 10;
 	float: left;
 	text-align: center;
+	background:rgba(0,0,0,0.5);
 }
 
 .menu-button {
@@ -75,21 +85,22 @@ h1 {
 	background-size: cover;
 }
 
-#mass-shootings2 {
-	background: linear-gradient(
-			rgba(0, 0, 0, 0.5),
-			rgba(0, 0, 0, 0.45)
-	), url('../img/gun-america.jpg');
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+/*#mass-shootings2 {*/
+	/*background: linear-gradient(*/
+			/*rgba(0, 0, 0, 0.5),*/
+			/*rgba(0, 0, 0, 0.45)*/
+	/*), url('../img/gun-america.jpg');*/
+	/*background-repeat: no-repeat;*/
+	/*background-attachment: fixed;*/
+	/*background-position: center;*/
+	/*!*-webkit-background-size: cover;*!*/
+	/*!*-moz-background-size: cover;*!*/
+	/*!*-o-background-size: cover;*!*/
+	/*background-size: cover;*/
 
-	padding: 2em;
-}
+	/*padding: 2em;*/
+/*}*/
+
 
 
 .col-4 {
@@ -104,6 +115,7 @@ h1 {
 .count {
 	font-size: 50px;
 	font-weight: bold;
+	color: #a50f15;
 }
 
 #transition-to-general {
@@ -129,6 +141,10 @@ h3 {
 	border-top: 1px solid white;
 	border-bottom: 1px solid white;
 }
+
+/*strong {*/
+	/*color: #a50f15;*/
+/*}*/
 
 
 

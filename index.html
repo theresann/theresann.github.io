@@ -6,21 +6,45 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/jovin/style.css">
-  <script>
-  
-  </script>
+  <link rel="stylesheet" type="text/css" href="css/viewScroller.min.css">
+  <style>
+    .view2 {
+      /*background-color: #30D5C7;*/
+      background-image: url('img/gun-america.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+
+      background-size: cover;
+
+      padding: 2em;
+    }
+  </style>
+
 </head>
 <body>
 
+<div class="menu">
+  <a href="#view1" class="vs-anchor"><button class="menu-button">Introduction</button></a>
+  <a href="#view2-1" class="vs-anchor"><button class="menu-button">Mass Shootings</button></a>
+  <a href="#view3-0" class="vs-anchor"><button class="menu-button">Gun Violence Deaths</button></a>
+  <a href="#view4-0" class="vs-anchor"><button class="menu-button">Gun Policy</button></a>
+  <a href="#view5-0" class="vs-anchor"><button class="menu-button">Conclusion</button></a>
+  <!--<button class="vs-mainview-prev">prev</button>-->
+  <!--<button class="vs-mainview-next">next</button><br>-->
+</div>
+
+<div class="mainbag">
+
 <!-- content -->
-<div class="title">
-  <div style="padding:8em 8em 5em 8em;">
+<div vs-anchor="view1" class="title mainview">
+  <div style="padding: 12em 8em 5em 6em;">
     <h1>Gun Violence in the United States</h1>
     <h5>
       "In retrospect Sandy Hook marked the end of the US gun control debate...<br>
       Once America decided killing children was bearable, it was over." </h5>
     
-    <h6>- Ben Hodges on the 2012 attack on a Connecticut elementary school <br>
+    <h6>- Ben Hodges on the 2012 attack on Sandy Hook, a Connecticut elementary school, <br>
       which resulted in the deaths of 20 young students</h6>
   
   </div>
@@ -28,16 +52,16 @@
 </div>
 
 <!--mass shootings-->
-<div id="mass-shootings"></div>
+<div id="mass-shootings" vs-anchor="view2-1" class="mainview"></div>
 <br>
-<div id="mass-shootings2" class="container-fluid">
+<div id="mass-shootings2" vs-anchor="view2-2" class="container-fluid mainview view2">
   <h3 style="font-style: italic">How did they die?</h3>
   <button type="button" id="showGrid" class="btn btn-light" onclick="weaponsAnimate()">Click to find out ></button>
   
   <div class="row">
     <div class="col-4">
       <span class="count" id="semiautomatic-handgun">X</span><br>died in an incident involving <br>
-      <strong>semi-automatic handguns</strong>
+      <strong >semi-automatic handguns</strong>
     </div>
     <div class="col-4">
       <span class="count" id="rifle">X</span><br>died in an incident involving <br>
@@ -65,8 +89,8 @@
   <br>
 
 </div>
-<div>
-  <h4 style="margin: 4em 4em 2em 4em">
+<div vs-anchor="view2-3" class="mainview">
+  <h4 style="margin: 2em 4em 2em 4em">
     These horrific incidents happened in everyday places, such as offices, places of worship, and schools.
   </h4>
   <div id="mass-shootings3"></div>
@@ -75,18 +99,18 @@
   </h4>
 </div>
 <br>
-<div id="transition-to-general">
+<div id="transition-to-general" vs-anchor="view3-0" class="mainview">
   <h4>
     Mass shootings have killed hundreds of people, but account for less than 0.01% of gun deaths.
     <br><br>
-    <b>96 people everyday die as a result of gun violence.</b>
+    <b style="font-size: 30px">96 people everyday die as a result of gun violence.</b>
   </h4>
 </div>
 <!--<div id="mass-shootings3" style="background-color: #1b1e21"></div>-->
 <br>
 <!--basic info-->
-<div class="gunQuestions-container">
-  <div class="portions">
+<div  vs-anchor="view3-1" class="gunQuestions-container mainview">
+  <div  class="portions">
     <h1>What portions of deaths in the U.S are caused by guns?</h1>
     <div class="gunContainer">
       <svg class="gun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="1 -47 511.99998 511">
@@ -132,7 +156,9 @@
     </div>
     <p class="actual-number">About <a href="#">8 out of 10</a> people.</p>
   </div>
-  <div class="prevalent-guns">
+</div>
+<div  vs-anchor="view3-2" class="gunQuestions-container mainview">
+  <div class="prevalent-guns ">
     <h1>What are the most dangerous guns?</h1>
     
     <div class="gunContainer">
@@ -177,37 +203,56 @@
         <path d="m204.332031 246.886719 21.214844 21.214843-21.214844 21.214844-21.214843-21.214844zm0 0"></path>
       </svg>
     </div>
-    <h1 class="actual-number">7 out of 10 gun deaths is a result of the use of a Semi-Automatic riffle.</h1>
+    <h1 class="actual-number">7 out of 10 gun deaths are a result of the use of a Semi-Automatic rifle.</h1>
   </div>
 
 </div>
 
 <!--gun control correlates to gun deaths -->
 
-<div>
+<div vs-anchor="view4-0" class="mainview">
   <h2 id="gun-control">Gun control saves lives.</h2>
 </div>
-<br>
 
-<div id="gun-ownership">
-  <h4 style="padding: 2em 5em 4em 5em;">
-    States without background checks tend to have more guns. States with more guns tend to have more deaths
-    due to guns.
-  </h4>
-</div>
-<br>
-<br>
-<br>
-<div>
-  <h4 style="padding: 2em 5em 4em 5em;">
-    States with fewer gun regulations have more deaths, and those with more gun regulations have fewer deaths.
-  </h4>
-  <div id="state-grades"></div>
-  <p style="text-align: right; padding: 30px; font-style: italic">Scores taken from the Giffords Law Center 2016
-    Scorecard.</p>
+<div  vs-anchor="view4-1" class="mainview">
+  <div class="row">
+    <div class="col-3">
+      <h4 style="padding: 2em 2em 2em 4em; font-size: 18px; line-height: 25px;">
+        States without gun control measures such as
+        background checks tend to have higher rates of gun ownership. <br> <br>
+        States with higher rates of gun ownership tend to have higher rates of deaths
+        due to guns.
+      </h4>
+    </div>
+    <div class="col-9" id="gun-ownership"></div>
+  </div>
 </div>
 
-<div class="gunLaw-container">
+<div vs-anchor="view4-2" class="mainview">
+  <div class="row">
+    <div class="col-9" >
+
+      <div id="state-grades"></div>
+
+    </div>
+    <div class="col-3">
+      <h4 style="padding: 0em 3em 0em 2em; font-size: 18px; line-height: 25px;">
+        States with looser gun control have more deaths, and those with tighter gun control have fewer deaths.
+      </h4>
+      <p style="text-align: justify; padding: 10px 3em 0px 30px; font-size: 12px;">
+        Scores are taken from the Giffords Law Center 2016
+        Scorecard, which evaluates states based on a system where they gain points for gun control measures such
+        as background checks or restricting access to domestic violence perpetrators, and lose points for policies
+        that make it exceedingly easy for people to obtain and use guns, such as allowing people to carry concealed
+        weapons without a permit.
+      </p>
+
+    </div>
+  </div>
+
+</div>
+
+<div vs-anchor="view4-3" class="gunLaw-container mainview">
   <h1>Mass shootings in the United States</h1>
   <div class="help">
     <span>Red spots show instances of Shootings across the year in under 5 seconds.</span>
@@ -321,7 +366,60 @@
   </div>
 </div>
 
-<div style="padding: 2em; margin-left: 2em; text-align: left; font-size: 12px; border-top: 1px solid white">
+<div vs-anchor="view-temp" class="mainview"></div>
+
+<div vs-anchor="view5-0" class="mainview">
+  <h2 id="gun-control">Take action today</h2>
+</div>
+
+<div vs-anchor="view5-0" class="mainview">
+  <p style="padding: 0em 3em 2em 3em">
+    <b>Tens of thousands of people die every year from gun violence.</b>
+    <b>This must change.</b> <br><br>
+    The data shows that gun control stops gun violence, and yet we have so far failed to implement
+    the measures that could save thousands of lives every year, and save entire communities from the pain of
+    losing a loved one. The only way that we will be able to make progress is if we keep lawmakers accountable,
+    and support groups that are organizing to do so,
+    to making policies that keep our communities, our families, and our children safe -- policies such as
+    requiring background checks to purchase firearms, keeping guns out of the hands of known domestic violence
+    perpetrators, and banning military style weaponry from civilian use.
+  </p>
+  <div class="row">
+    <div class="col-6" style="text-align: left; margin-left: 2em; margin-right: 1em; border-right: 1px solid white;">
+      Here are some organizations who are fighting for gun control:
+      <ul style="font-size: 12px; ">
+        <li><a href="everytown.org">Everytown for Gun Safety:</a><br>
+          The organization calls for more background checks, laws to prevent domestic abusers from getting
+          firearms, and tougher gun-trafficking laws. It also has a political action committee that supports
+          and opposes various candidates.
+        </li>
+        <li><a href="www.bradycampaign.org">The Brady Campaign: </a><br>
+          One of the oldest gun control organizations in the country, the Brady Campaign advocates for new
+          policy but also calls on the government to enforce various laws that are already in place.
+        </li>
+        <li><a href="csgv.org">Coalition to Stop Gun Violence: </a><br>
+          The coalition is an umbrella group of 48 organizations that has been fighting to repeal
+          concealed-carry laws and prevent gun-related suicides, which result in more deaths than do
+          gun-related homicides.
+        </li>
+      </ul>
+    </div>
+    <div class="col-5" style="text-align: left; margin-left: 1em; margin-right: 2em; font-size: 14px" id="senators">
+      You can also contact your representatives directly! To find out who your congressional representatives
+      are, as well as how to contact them, visit this website <a href="https://www.govtrack.us/congress/members">here.</a>
+
+      <br><br>
+      For tips on what to say when you write or call your representatives, visit the
+      <a href="http://www.bradycampaign.org/take-action/written-letters-to-senators-and-members-of-congress">
+        Brady Campaign's guide </a> for written letters to Congress -- you can also adapt the guide to call your
+        representatives if you would prefer to do that!
+
+    </div>
+
+  </div>
+</div>
+
+<div vs-anchor="view5" class="mainview" style="padding: 2em; margin-left: 2em; text-align: left; font-size: 12px; border-top: 1px solid white">
   <p>Sources</p>
   <div class="row">
     <div class="col-6">
@@ -354,8 +452,14 @@
           </a></li>
         <li>Giffords Law Center: Gun Control from State to State</li>
         <li>CDC: Deaths from Firearms</li>
+        <li>https://www.laweekly.com/news/six-gun-control-organizations-where-you-can-donate-or-volunteer-8716560</li>
       </ul>
     </div>
+
+</div>
+
+</div>
+
 
 </div>
 
@@ -376,6 +480,24 @@
 <script src="js/jovin/topojson.min.js"></script>
 <script src="js/jovin/map.js"></script>
 <script src="js/jovin/main.js"></script>
+
+<!--<script src="jquery-3.1.0.min.js"></script>-->
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/jquery.mousewheel.min.js"></script>
+<script src="js/viewScroller.min.js"></script>
+
+  <script>
+      $(document).ready(function() {
+          $('.mainbag').viewScroller();
+      });
+      $('.mainbag').viewScroller({
+          useScrollbar: false, // Use scrollbar to change views
+          changeWhenAnim: false, // Change views when they are changing
+          loopMainViews: false, // Change horizontal views (mainviews) in loop mode
+          loopSubViews: true	// Change vertical views (subviews) in loop mode
+      });
+
+  </script>
 
 </body>
 </html>

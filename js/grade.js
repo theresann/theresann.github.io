@@ -1,6 +1,6 @@
 // SVG drawing area
 
-var margin2 = {top: 100, right: 40, bottom: 60, left: 60};
+var margin2 = {top: 30, right: 40, bottom: 60, left: 60};
 
 var width2 = 1000 - margin2.left - margin2.right,
     height2 = 350 - margin2.top - margin2.bottom;
@@ -53,6 +53,15 @@ function gunScoreVis() {
     var scoreScale = d3.scaleLinear()
         .domain([0,25])
         .range([height2, 0]).nice();
+
+    var colorScale = {
+        A: "#fee5d9",
+        B: "#fcae91",
+        C: "#fb6a4a",
+        D: "#de2d26",
+        E: "#a50f15"
+
+    }
 
     svg2.selectAll("rect")
         .data(data)
@@ -122,10 +131,16 @@ function gunScoreVis() {
         .style("text-anchor", "end")
         .text("(per 100,000)");
 
-    // svg2.append("text")
-    //     .style("text-anchor", "end")
-    //     .attr("x", width2)
-    //     .attr("y", height2)
-    //     .text("Gun regulation scores from Giffords Law Center")
+    svg2.append("text")
+        .attr("text-anchor", "middle")
+        .style("font-size", 14)
+        .attr("transform", "translate(-" + (margin2.left/2)+ ","+(height2/2)+")rotate(-90)")
+        .text("Rate of Gun Deaths");
+
+    svg2.append("text")
+        .attr("text-anchor", "middle")
+        .style("font-size", 14)
+        .attr("transform", "translate("+ (width2/2) +","+(height2 + margin2.bottom/2 + 5)+")")
+        .text("State");
 
 }
