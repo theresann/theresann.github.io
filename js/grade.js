@@ -54,14 +54,9 @@ function gunScoreVis() {
         .domain([0,25])
         .range([height2, 0]).nice();
 
-    var colorScale = {
-        A: "#fee5d9",
-        B: "#fcae91",
-        C: "#fb6a4a",
-        D: "#de2d26",
-        E: "#a50f15"
 
-    }
+
+    console.log(data);
 
     svg2.selectAll("rect")
         .data(data)
@@ -70,6 +65,7 @@ function gunScoreVis() {
         .on('mouseover', score_tip.show)
         .on('mouseout', score_tip.hide)
         .attr("fill", function(d) {
+            console.log(d.state);
             var g = d.grade;
             if (g.includes("A")) {
                 // return "#fed976";
@@ -142,5 +138,53 @@ function gunScoreVis() {
         .style("font-size", 14)
         .attr("transform", "translate("+ (width2/2) +","+(height2 + margin2.bottom/2 + 5)+")")
         .text("State");
+
+    var colorScale = {
+        A: "#fee5d9",
+        B: "#fcae91",
+        C: "#fb6a4a",
+        D: "#de2d26",
+        E: "#a50f15"
+
+    };
+
+
+
+
+    (Object.keys(colorScale)).forEach(function(d, i){
+        svg2.append("rect")
+            .attr("width", 10)
+            .attr("height", 10)
+            .attr("fill", colorScale[d])
+            .style("stroke", colorScale[d])
+            .attr("x", i * 40 + 60 + 30)
+            .attr("y", 5);
+
+        svg2.append("text")
+            .attr("x", i * 40 + 60 + 15 + 30)
+            .attr("y", 13)
+            .style("font-size", 10)
+            .text(d);
+    });
+
+    svg2.append("rect")
+        .attr("height", 20)
+        .attr("width", 210)
+        .attr("fill", "none")
+        .attr("stroke-width", "0.75px")
+        .attr("x", 40 + 35)
+        .attr("y", 0);
+
+    svg2.append("text")
+        .attr("x", 75)
+        .attr("y", -5)
+        .attr("text-anchor", "start")
+        .style("font-size", 12)
+        .text("Gun Regulation Scores")
+
+
+
+
+
 
 }

@@ -32,6 +32,10 @@ input {
 	font-size: 12px;
 }
 
+/*#fadeIn1, #fadeIn2, #fadeIn3 {*/
+	/*display: none;*/
+/*}*/
+
 .menu {
 	position: fixed;
 	padding-top: 10px;
@@ -85,21 +89,21 @@ input {
 	background-size: cover;
 }
 
-/*#mass-shootings2 {*/
-	/*background: linear-gradient(*/
-			/*rgba(0, 0, 0, 0.5),*/
-			/*rgba(0, 0, 0, 0.45)*/
-	/*), url('../img/gun-america.jpg');*/
-	/*background-repeat: no-repeat;*/
-	/*background-attachment: fixed;*/
-	/*background-position: center;*/
-	/*!*-webkit-background-size: cover;*!*/
-	/*!*-moz-background-size: cover;*!*/
-	/*!*-o-background-size: cover;*!*/
-	/*background-size: cover;*/
+#mass-shootings2 {
+	background: linear-gradient(
+			rgba(0, 0, 0, 0.5),
+			rgba(0, 0, 0, 0.45)
+	), url('../img/gun-america.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	/*-webkit-background-size: cover;*/
+	/*-moz-background-size: cover;*/
+	/*-o-background-size: cover;*/
+	background-size: cover;
 
-	/*padding: 2em;*/
-/*}*/
+	padding: 2em;
+}
 
 
 
@@ -119,8 +123,7 @@ input {
 }
 
 #transition-to-general {
-	font-size: 40px;
-	padding: 4em 4em 6em 4em ;
+
 	background: linear-gradient(
 			rgba(0, 0, 0, 0.6),
 			rgba(0, 0, 0, 0.6)
@@ -132,6 +135,8 @@ input {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+	font-size: 40px;
+	padding: 3.5em 4em 6em 4em ;
 }
 
 h3 {
