@@ -73,7 +73,7 @@ body {
     visibility: hidden; }
 
 .gunLaw-container {
-  margin: 0 auto;
+  margin: -80px auto 0 auto;
   width: 1250px; }
   .gunLaw-container h1 {
     font-size: 48px;
@@ -87,8 +87,7 @@ body {
   .gunLaw-container .columns {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    margin-top: 30px; }
+    justify-content: center; }
     .gunLaw-container .columns .leftColumn {
       margin-right: 30px; }
       .gunLaw-container .columns .leftColumn #gunLawMap .states:hover {
@@ -128,7 +127,7 @@ body {
           -webkit-appearance: none;
           appearance: none;
           width: 100%;
-          height: 25px;
+          height: 15px;
           background: #d3d3d3;
           outline: none;
           opacity: 0.7;
@@ -139,13 +138,13 @@ body {
         .gunLaw-container .columns .leftColumn .sliderContainer .slider::-webkit-slider-thumb {
           -webkit-appearance: none;
           appearance: none;
-          width: 25px;
-          height: 25px;
+          width: 15px;
+          height: 15px;
           background: #b10026;
           cursor: pointer; }
         .gunLaw-container .columns .leftColumn .sliderContainer .slider::-moz-range-thumb {
-          width: 25px;
-          height: 25px;
+          width: 15px;
+          height: 15px;
           background: #0f76c7;
           cursor: pointer; }
     .gunLaw-container .columns .right-column {
@@ -155,15 +154,18 @@ body {
       padding: 15px;
       border-left: 1px dashed grey; }
       .gunLaw-container .columns .right-column .description .heading h2 {
+        display: none;
         font-size: 16px;
         font-weight: normal; }
+      .gunLaw-container .columns .right-column .description p {
+        margin-bottom: 3px; }
       .gunLaw-container .columns .right-column .description .table table {
         border-collapse: collapse; }
         .gunLaw-container .columns .right-column .description .table table tr {
           border-top: 1px solid #b3b3b3; }
           .gunLaw-container .columns .right-column .description .table table tr td {
             padding: 5px;
-            font-size: 12px; }
+            font-size: 9px; }
             .gunLaw-container .columns .right-column .description .table table tr td.value {
               font-weight: bold; }
 

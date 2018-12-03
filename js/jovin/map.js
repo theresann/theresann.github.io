@@ -151,8 +151,8 @@ GunLawMap.prototype.initVis = function() {
   const vis = this
 
   vis.margin = { top: 20, right: 20, bottom: 20, left: 20 }
-  vis.width = 600 - vis.margin.left - vis.margin.right
-  vis.height = 400 - vis.margin.top - vis.margin.bottom
+  vis.width = 400 - vis.margin.left - vis.margin.right
+  vis.height = 300 - vis.margin.top - vis.margin.bottom
   vis.svg = d3
     .select(vis.parentElement)
     .append('svg')
@@ -262,7 +262,7 @@ GunLawMap.prototype.updateVis = function() {
   }
 
   const path = d3.geoPath()
-    .projection(scale(0.6))
+    .projection(scale(0.4))
 
   const theStates = topojson.feature(vis.usTopoJSON, vis.usTopoJSON.objects.states).features
 
