@@ -251,7 +251,7 @@ GunLawMap.prototype.updateVis = function() {
     .scaleLinear()
     .domain([0, 1, 2, 3, 4, 5])
     // .range([d3.rgb('#feb24c'), d3.rgb('#b10026')])
-    .range(['#A07A19', '#AC30C0', '#EB9A72', '#BA86F5', '#EA22A8'])
+    .range(['#fee5d9', '#fcae91', '#fb6a4a', '#de2d26', '#a50f15'])
 
   function scale(scaleFactor) {
     return d3.geoTransform({
