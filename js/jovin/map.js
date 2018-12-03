@@ -16,21 +16,22 @@ GunLawMap = function(_mapParentElement, _legendParentElement, _usTopoJSON, _stat
 
   this.originalGunViolence = _gunViolenceData
   this.gunViolenceMap = this.originalGunViolence.reduce((prev, v) => {
-    if (!prev.hasOwnProperty(v.date)) {
-      prev[v.date] = {}
+    const gunDate = moment(v.date).format('YYYY-MM')
+    if (!prev.hasOwnProperty(gunDate)) {
+      prev[gunDate] = {}
     }
     const state = v.state
     const stateId = vis.stateNameIdMap[state]
-    if (!prev[v.date].hasOwnProperty(stateId)) {
-      prev[v.date][stateId] = 0
+    if (!prev[gunDate].hasOwnProperty(stateId)) {
+      prev[gunDate][stateId] = 0
     }
-    prev[v.date][stateId] = prev[v.date][stateId] + parseInt(v.n_killed, 10)
+    prev[gunDate][stateId] = prev[gunDate][stateId] + parseInt(v.n_killed, 10)
     return prev
   }, {})
   this.originalGunLawData = _gunLawData
   this.focusedGunLawData = undefined
   this.state = {
-    n_killed: 4,
+    n_killed: 14,
     year: 2014,
     date: moment().month('January').startOf('month').year(2014)
   }
@@ -150,8 +151,8 @@ GunLawMap.prototype.initVis = function() {
   const vis = this
 
   vis.margin = { top: 20, right: 20, bottom: 20, left: 20 }
-  vis.width = 960 - vis.margin.left - vis.margin.right
-  vis.height = 600 - vis.margin.top - vis.margin.bottom
+  vis.width = 600 - vis.margin.left - vis.margin.right
+  vis.height = 400 - vis.margin.top - vis.margin.bottom
   vis.svg = d3
     .select(vis.parentElement)
     .append('svg')
@@ -162,10 +163,10 @@ GunLawMap.prototype.initVis = function() {
 
   vis.legendVis = {}
   vis.legendVis.margin = { top: 20, right: 20, bottom: 20, left: 20 }
-  vis.legendVis.width = 960 - vis.legendVis.margin.left - vis.legendVis.margin.right
-  vis.legendVis.height = 600 - vis.legendVis.margin.top - vis.legendVis.margin.bottom
+  vis.legendVis.width = 150 - vis.legendVis.margin.left - vis.legendVis.margin.right
+  vis.legendVis.height = 120 - vis.legendVis.margin.top - vis.legendVis.margin.bottom
   vis.legendVis.svg = d3
-    .select(vis.legendElement)
+    .select(vis.parentElement)
     .append('svg')
     .attr('class', 'legend')
     .attr('width', vis.legendVis.width + vis.legendVis.margin.left + vis.legendVis.margin.right)
@@ -177,7 +178,7 @@ GunLawMap.prototype.initVis = function() {
 
 GunLawMap.prototype.wrangleData = function() {
   const vis = this
-  const gunDate = moment(vis.state.date).format('YYYY-MM-DD')
+  const gunDate = moment(vis.state.date).format('YYYY-MM')
 
   switch (vis.state.year) {
     case 2014:
@@ -249,9 +250,19 @@ GunLawMap.prototype.updateVis = function() {
   const colorScale = d3
     .scaleLinear()
     .domain([0, 1, 2, 3, 4, 5])
-    .range([d3.rgb('#feb24c'), d3.rgb('#b10026')])
+    // .range([d3.rgb('#feb24c'), d3.rgb('#b10026')])
+    .range(['#A07A19', '#AC30C0', '#EB9A72', '#BA86F5', '#EA22A8'])
+
+  function scale(scaleFactor) {
+    return d3.geoTransform({
+      point: function(x, y) {
+        this.stream.point(x * scaleFactor, y * scaleFactor)
+      }
+    })
+  }
 
   const path = d3.geoPath()
+    .projection(scale(0.6))
 
   const theStates = topojson.feature(vis.usTopoJSON, vis.usTopoJSON.objects.states).features
 
@@ -310,6 +321,39 @@ GunLawMap.prototype.updateVis = function() {
     })
 
   mapSelection
+    .exit()
+    .remove()
+
+  const gradeSelection = vis
+    .svg
+    .selectAll('text.grade')
+    .data(theStates, d => d.key)
+
+  gradeSelection
+    .enter()
+    .append('text')
+    .attr('transform', d => `translate(${path.centroid(d)})`)
+    .attr('class', 'grade')
+    .text(d => {
+      const data = getGunDataForStateId(d.id)
+      if (!data) {
+        return '-'
+      }
+      return data.grade
+    })
+
+  gradeSelection
+    .attr('transform', d => `translate(${path.centroid(d)})`)
+    .attr('class', 'grade')
+    .text(d => {
+      const data = getGunDataForStateId(d.id)
+      if (!data) {
+        return '-'
+      }
+      return data.grade
+    })
+
+  gradeSelection
     .exit()
     .remove()
 
