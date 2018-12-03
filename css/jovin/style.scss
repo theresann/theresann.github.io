@@ -162,6 +162,7 @@ body {
   }
 
   .states {
+    transition: fill 1s linear;
     &:hover {
       fill-opacity: 0.7;
     }

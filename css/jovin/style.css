@@ -2,7 +2,7 @@
   box-sizing: border-box; }
 
 body {
-  /*padding: 15px;*/
+  padding: 15px;
   font-family: Lucida Grande, Lucida Sans, Verdana, Tahoma, Helvetica Neue, Arial, sans-serif;
   background-color: black;
   color: white; }
@@ -108,8 +108,10 @@ body {
             font-size: 12px; }
             .gunLaw-container .columns .right-column .description .table table tr td.value {
               font-weight: bold; }
-  .gunLaw-container .states:hover {
-    fill-opacity: 0.7; }
+  .gunLaw-container .states {
+    transition: fill 1s linear; }
+    .gunLaw-container .states:hover {
+      fill-opacity: 0.7; }
   .gunLaw-container .years {
     width: 500px;
     height: 100px;
