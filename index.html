@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/jovin/style.css">
   <link rel="stylesheet" type="text/css" href="css/viewScroller.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <style>
     .view2 {
       /*background-color: #30D5C7;*/
@@ -219,46 +220,8 @@
 <div vs-anchor="view4-0" class="mainview">
   <h2 id="gun-control">Gun control saves lives.</h2>
 </div>
-
-<div  vs-anchor="view4-1" class="mainview">
-  <div class="row">
-    <div class="col-3">
-      <h4 style="padding: 2em 2em 2em 4em; font-size: 18px; line-height: 25px;">
-        States without gun control measures such as
-        background checks tend to have higher rates of gun ownership. <br> <br>
-        States with higher rates of gun ownership tend to have higher rates of deaths
-        due to guns.
-      </h4>
-    </div>
-    <div class="col-9" id="gun-ownership"></div>
-  </div>
-</div>
-
-<div vs-anchor="view4-2" class="mainview" style="padding-top: 3em;">
-  <div class="row">
-    <div class="col-9" >
-
-      <div id="state-grades"></div>
-
-    </div>
-    <div class="col-3">
-      <h4 style="padding: 0em 3em 0em 2em; font-size: 18px; line-height: 25px;">
-        States with looser gun control have more deaths, and those with tighter gun control have fewer deaths.
-      </h4>
-      <p style="text-align: justify; padding: 10px 3em 0px 30px; font-size: 12px;">
-        Scores are taken from the Giffords Law Center 2016
-        Scorecard, which evaluates states based on a system where they gain points for gun control measures such
-        as background checks or restricting access to domestic violence perpetrators, and lose points for policies
-        that make it exceedingly easy for people to obtain and use guns, such as allowing people to carry concealed
-        weapons without a permit.
-      </p>
-
-    </div>
-  </div>
-
-</div>
-
-<div vs-anchor="view4-3" class="gunLaw-container mainview">
+  
+  <div vs-anchor="view4-3" class="gunLaw-container mainview">
   <h1>Mass shootings in the United States</h1>
   <div class="help">
     <span>Red spots show instances of Shootings across the year in under 5 seconds.</span>
@@ -268,6 +231,8 @@
       <div id="gunLawMap"></div>
       <div id="gunLawLegend"></div>
       <div class="years">
+        <span class="play-pause play" style="display: none"><i class="fas fa-play"></i></span>
+        <span class="play-pause pause" style="display: none"><i class="fas fa-pause"></i></span>
         <span class="year 2014" year="2014">2014</span>
         <span class="year 2015" year="2015">2015</span>
         <span class="year 2016" year="2016">2016</span>
@@ -372,7 +337,44 @@
   </div>
 </div>
 
-<div vs-anchor="view-temp" class="mainview"></div>
+<div  vs-anchor="view4-1" class="mainview">
+  <div class="row">
+    <div class="col-3">
+      <h4 style="padding: 2em 2em 2em 4em; font-size: 18px; line-height: 25px;">
+        States without gun control measures such as
+        background checks tend to have higher rates of gun ownership. <br> <br>
+        States with higher rates of gun ownership tend to have higher rates of deaths
+        due to guns.
+      </h4>
+    </div>
+    <div class="col-9" id="gun-ownership"></div>
+  </div>
+</div>
+
+<div vs-anchor="view4-2" class="mainview" style="padding-top: 3em;">
+  <div class="row">
+    <div class="col-9" >
+
+      <div id="state-grades"></div>
+
+    </div>
+    <div class="col-3">
+      <h4 style="padding: 0em 3em 0em 2em; font-size: 18px; line-height: 25px;">
+        States with looser gun control have more deaths, and those with tighter gun control have fewer deaths.
+      </h4>
+      <p style="text-align: justify; padding: 10px 3em 0px 30px; font-size: 12px;">
+        Scores are taken from the Giffords Law Center 2016
+        Scorecard, which evaluates states based on a system where they gain points for gun control measures such
+        as background checks or restricting access to domestic violence perpetrators, and lose points for policies
+        that make it exceedingly easy for people to obtain and use guns, such as allowing people to carry concealed
+        weapons without a permit.
+      </p>
+
+    </div>
+  </div>
+
+</div>
+
 
 <div vs-anchor="view5-0" class="mainview">
   <h2 id="gun-control">Take action today</h2>
