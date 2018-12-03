@@ -144,7 +144,7 @@ function gunScoreVis() {
         B: "#fcae91",
         C: "#fb6a4a",
         D: "#de2d26",
-        E: "#a50f15"
+        F: "#a50f15"
 
     };
 
@@ -180,7 +180,7 @@ function gunScoreVis() {
         .attr("y", -5)
         .attr("text-anchor", "start")
         .style("font-size", 12)
-        .text("Gun Regulation Scores")
+        .text("Gun Regulation Score Ranges")
 
 
 
